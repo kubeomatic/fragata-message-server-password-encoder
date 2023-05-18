@@ -5,7 +5,9 @@ import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
 public class Scrypt {
     public static String encrypty(String password){
+//        PasswordEncoder sCryptPasswordEncoder = SCryptPasswordEncoder.defaultsForSpringSecurity_v5_8();
         PasswordEncoder sCryptPasswordEncoder = new SCryptPasswordEncoder(16384, 8, 1, 32, 64);
+
         return sCryptPasswordEncoder.encode(password);
     }
 }

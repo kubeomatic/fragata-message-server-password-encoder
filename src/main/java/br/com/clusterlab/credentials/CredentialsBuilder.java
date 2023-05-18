@@ -26,28 +26,29 @@ public class CredentialsBuilder implements CommandLineRunner {
 
     @Override
     public void run(String[] args) throws JsonProcessingException {
+        String encoder = "scrypt";
 
         List<Credential> customCredentials = new ArrayList<>();
 
         Credential user1 = new Credential();
         user1.setUsername("jenkins");
-        user1.setEncoder("SCRYPT");
-        user1.setPassword(Scrypt.encrypty("123mudar"));
+        user1.setEncoder(encoder);
+        user1.setPassword("{"+encoder+"}"+Scrypt.encrypty("123mudar"));
         user1.setRole("admin");
         customCredentials.add(user1);
 
         Credential user2 = new Credential();
         user2.setUsername("rundeck");
-        user2.setEncoder("SCRYPT");
-        user2.setPassword(Scrypt.encrypty("123mudar"));
+        user2.setEncoder(encoder);
+        user2.setPassword("{"+encoder+"}"+Scrypt.encrypty("123mudar"));
         user2.setRole("admin");
         customCredentials.add(user2);
 
 
         Credential user3 = new Credential();
         user3.setUsername("guest");
-        user3.setEncoder("SCRYPT");
-        user3.setPassword(Scrypt.encrypty("123mudar"));
+        user3.setEncoder(encoder);
+        user3.setPassword("{"+encoder+"}"+Scrypt.encrypty("123mudar"));
         user3.setRole("view");
         customCredentials.add(user3);
 
